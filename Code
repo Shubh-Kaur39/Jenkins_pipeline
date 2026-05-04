@@ -5,7 +5,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                echo "Stage 1: Build"
+                echo "Stage 1: Build and compile"
                 echo "Maven"
                 echo "Task: Compiling source code and packaging the application using Maven."
             }
