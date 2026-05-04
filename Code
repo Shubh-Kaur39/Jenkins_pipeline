@@ -32,6 +32,7 @@ pipeline {
                 echo 'Stage 4: Security Scan'
                 echo 'Tool: OWASP Dependency-Check'
                 echo 'Task: Scanning project dependencies to identify security issues such as injection vulnerabilities and misconfigurations.'
+            }
         }
 
         stage('Deploy to Staging') {
