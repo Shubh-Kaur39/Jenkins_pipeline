@@ -1,0 +1,61 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Build') {
+            steps {
+                echo "Stage 1: Build"
+                echo "Maven"
+                echo "Task: Compiling source code and packaging the application using Maven."
+            }
+        }
+
+        stage('Unit and Integration Tests') {
+            steps {
+                echo "Stage 2 : Unit and Integration tests"
+                echo 'Tools: JUnit for unit tests, Selenium for integration tests'
+                echo 'Task: Running unit tests to validate individual components and integration tests to verify component interactions.'
+            }
+        }
+
+        stage('Code') {
+            steps {
+                echo 'Stage 3: Code Analysis'
+                echo 'Tool: SonarQube'
+                echo 'Task: Analysing code quality, detecting code smells, bugs, and mainitainability issues using SonarQube static analysis.'
+            }
+        }
+
+        stage('Security Scan') {
+            steps {
+                echo 'Stage 4: Security Scan'
+                echo 'Tool: OWASP Dependency-Check'
+                echo 'Task: Scanning project dependencies to identify security issues such as injection vulnerabilities and misconfigurations.'
+        }
+
+        stage('Deploy to Staging') {
+            steps {
+                echo 'Stage 5: Deploy to Staging'
+                echo 'Tool: AWS EC2 (Amazon Web Services EC2)'
+                echo 'Task: Deploying the application to AWS EC2 for pre-production testing.'
+            }
+        }
+
+        stage('Integration Tests on Staging') {
+            steps {
+                echo 'Stage 6: Integration Tests on Staging'
+                echo 'Tool: Postman'
+                echo 'Task: Running integration tests to verify that the components are interacting correctly in a production-like environment.'
+            }
+        }
+
+        stage('Deploy to Production') {
+            steps {
+                echo 'Stage 7: Deploy to Production'
+                echo 'Tool: AWS EC2'
+                echo 'Task: Deploying the validated application to the AWS EC2 production server.'
+            }
+        }
+    }
+}
